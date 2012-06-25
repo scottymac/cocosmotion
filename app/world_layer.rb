@@ -1,4 +1,4 @@
-class DemoBase < CCLayer 
+class DemoBase < CCLayer
     def onEnter
         super
 
@@ -17,7 +17,7 @@ class DemoBase < CCLayer
 		@sprite3.position =  [size.width/4*3, size.height/2]
 
 		label = CCLabelTTF.labelWithString self.title, fontName:"Arial", fontSize:32
-		self.addChild label 
+		self.addChild label
 		label.position =  [size.width/2, size.height-50];
 
         label = CCLabelTTF.labelWithString self.subtitle, fontName:"Thonburi", fontSize:16
@@ -34,6 +34,12 @@ class DemoBase < CCLayer
 		item2.position = [ size.width/2, item2.contentSize.height/2 ]
 		item3.position = [ size.width/2 + item2.contentSize.width*2, item2.contentSize.height/2 ]
 		self.addChild menu, z:1
+
+        scheduleUpdate
+    end
+
+    def update (dt)
+        $stdout.puts "update" #quits
     end
 
     def backCallback( sender )
@@ -94,15 +100,15 @@ class Test1 < DemoBase
     moveReverse = actionMove.reverse
     seq3 = CCSequence.actionsWithArray [actionMove, moveReverse]
 
-    @sprite1.runAction CCRepeatForever.actionWithAction seq1 
-    @sprite2.runAction CCRepeatForever.actionWithAction seq2 
+    @sprite1.runAction CCRepeatForever.actionWithAction seq1
+    @sprite2.runAction CCRepeatForever.actionWithAction seq2
     @sprite3.runAction CCRepeatForever.actionWithAction seq3
   end
 
   def title
     "Basic actions"
   end
-  
+
   def subtitle
     "Rotate, Scale and Translate actions"
   end
@@ -122,7 +128,7 @@ class Test2 < DemoBase
     actionSkew3 = CCSkewBy.actionWithDuration 2, skewX:45, skewY:45
     seq3 = CCSequence.actionsWithArray [actionSkew3, actionSkew3.reverse]
 
-    @sprite1.runAction CCRepeatForever.actionWithAction seq1 
+    @sprite1.runAction CCRepeatForever.actionWithAction seq1
     @sprite2.runAction CCRepeatForever.actionWithAction seq2
     @sprite3.runAction CCRepeatForever.actionWithAction seq3
   end
@@ -130,7 +136,7 @@ class Test2 < DemoBase
   def title
     "Skew actions"
   end
-  
+
   def subtitle
     "Testing skew actions"
   end
