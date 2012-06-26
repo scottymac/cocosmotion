@@ -145,7 +145,7 @@ static NSUInteger globalOrderOfArrival = 1;
 		orderOfArrival_ = 0;
 
 		glServerState_ = CC_GL_BLEND;
-		
+
 		// set default scheduler and actionManager
 		CCDirector *director = [CCDirector sharedDirector];
 		self.actionManager = [director actionManager];
@@ -671,6 +671,8 @@ static NSUInteger globalOrderOfArrival = 1;
 }
 
 #pragma mark CCNode - Scheduler
+
+-(void) update:(ccTime)delta {}
 
 -(void) setScheduler:(CCScheduler *)scheduler
 {

@@ -177,7 +177,7 @@ enum {
 	// Used by CCLayer and CCScene
 	BOOL ignoreAnchorPointForPosition_;
 
-	BOOL isReorderChildDirty_;	
+	BOOL isReorderChildDirty_;
 }
 
 /** The z order of the node relative to its "siblings": children of the same parent */
@@ -448,6 +448,8 @@ enum {
 -(NSUInteger) numberOfRunningActions;
 
 // timers
+
+-(void) update: (ccTime)delta;
 
 /** check whether a selector is scheduled. */
 //-(BOOL) isScheduled: (SEL) selector;
