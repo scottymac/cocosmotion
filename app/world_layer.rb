@@ -34,12 +34,6 @@ class DemoBase < CCLayer
 		item2.position = [ size.width/2, item2.contentSize.height/2 ]
 		item3.position = [ size.width/2 + item2.contentSize.width*2, item2.contentSize.height/2 ]
 		self.addChild menu, z:1
-
-        scheduleUpdate
-    end
-
-    def update (dt)
-        $stdout.puts "update" #quits
     end
 
     def backCallback( sender )
